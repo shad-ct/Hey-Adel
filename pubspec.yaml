@@ -1,0 +1,47 @@
+name: adel_clean
+description: "A clean offline assistant."
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.10.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Core Offline Engines
+  porcupine_flutter: ^4.0.0
+  vosk_flutter: ^0.3.0
+
+  # Permissions & Tools
+  permission_handler: ^11.0.0
+  url_launcher: ^6.3.0
+  external_app_launcher: ^4.0.0
+  connectivity_plus: ^6.0.0
+
+  flutter_contacts: ^1.1.9
+
+  # Online Brain & Voice
+  google_generative_ai: ^0.4.0
+  flutter_tts: ^3.8.0
+
+  # Environment variables
+  flutter_dotenv: ^5.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+# --- THE "FORCE" SECTION ---
+dependency_overrides:
+  # Force permission_handler to v11 (Fixes Vosk error)
+  permission_handler: ^11.0.0
+  # Force http to v1.1 (Fixes Gemini error)
+  http: ^1.1.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/porcupine/hey-adel_en_android_v4_0_0.ppn
+    - assets/vosk/model.zip
